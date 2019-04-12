@@ -1,0 +1,261 @@
+body {
+    background-color: #424A54;
+    color: #E4E4E4;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title h3 {
+    font-size: 25px;
+}
+
+.developers {
+    margin-top: 30px;
+}
+
+.photo {
+    height: 220px;
+    width: 200px;
+    background: no-repeat bottom;
+    background-size: cover;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.description {
+    margin-left: 8vw;
+    display: flex;
+    margin-bottom: 35px;
+    width: 90%;
+}
+
+.person {
+    max-width: 100%;
+    border-bottom: 3px solid #FF8100;
+    border-right: 3px solid #FF8100;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.name {
+    text-align: center;
+    margin-top: 3vw;
+    padding-top: 3vw;
+    margin-bottom: 3vw;
+}
+
+.info li {
+    list-style-type: disc;
+    font-size: 17px;
+}
+
+.info ul {
+    margin-top: 15px;
+    max-width: 90%;
+}
+
+.facebook a {
+    display: block;
+    text-align: center;
+    height: 100%;
+    color: #666;
+}
+
+.person {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.facebook {
+    margin-left: 3vw;
+    margin-bottom: 10px;
+    height: 30px;
+    width: 30px;
+    background: url("../images/developers/facebook.svg") no-repeat center;
+    background-size: cover;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.navbar {
+    width: 100%;
+    max-height: 70px;
+}
+
+@media only screen and (max-width: 319px) {
+
+    nav.navbar div.container {
+        display: flex;
+        justify-content: center
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .title h3 {
+        font-size: 1.35rem;
+    }
+
+    .person {
+        max-width: 80%;
+        margin-bottom: 15px;
+        margin-left: 11%;
+    }
+
+    .description {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        margin-bottom: 20px;
+        margin-left: 6vw;
+    }
+
+    .photo {
+        height: 135px;
+        width: 135px;
+    }
+
+    .info {
+        text-align: justify;
+        width: 90%;
+    }
+
+    .info ul {
+        margin-left: 4vw;
+    }
+
+    .info li {
+        font-size: 12px;
+    }
+
+    .facebook {
+        margin: 5px auto;
+    }
+}
+
+@media only screen and (min-width: 320px) {
+
+    nav.navbar div.container {
+        display: flex;
+        justify-content: center
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .title h3 {
+        font-size: 21px;
+    }
+
+    .person {
+        max-width: 80%;
+        margin-bottom: 15px;
+        margin-left: 11%;
+    }
+
+    .description {
+        flex-direction: column;
+        align-items: center;
+        max-width: 90%;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+
+    .photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .info {
+        text-align: justify;
+        max-width: 90%;
+    }
+
+    .info ul {
+        width: initial;
+        margin-left: 2vw;
+    }
+
+    .info li {
+        font-size: 13px;
+    }
+
+    .facebook {
+        margin: 5px auto;
+    }
+}
+
+@media only screen and (min-width: 576px) {
+    .info li {
+        font-size: 15px;
+    }
+
+    .description {
+        margin-left: 6vw;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .info ul {
+        margin-top: 20px;
+    }
+
+    .info li {
+        font-size: 15px;
+    }
+
+    .description {
+        margin-left: 4vw;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .person {
+        margin-left: 2%;
+        max-width: 100%;
+    }
+
+    .description {
+        flex-direction: row;
+    }
+
+    .photo {
+        height: 220px;
+        width: 200px;
+        background: no-repeat bottom;
+        background-size: cover;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+    }
+
+    .info {
+        width: 90%;
+        margin-left: 20px;
+    }
+
+    .info ul {
+        margin-left: 4vw;
+    }
+
+    .facebook {
+        margin: 5px 40px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
+}
+
+@media only screen and (min-width: 1999px){
+
+}

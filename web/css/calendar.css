@@ -1,0 +1,140 @@
+@import "https://fonts.googleapis.com/css?family=Lato";
+@import "compass/css3";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+body {
+    font-family: "Lato", sans-serif;
+}
+#header {
+    background: #00205c;
+    width: 100%;
+    height: 75px;
+}
+h3.title{
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 26px;
+    font-weight: normal;
+    color: #fff;
+    margin-bottom: 60px;
+    text-align: center;
+}
+.wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: 4em;
+}
+.wrapper .event {
+    overflow: hidden;
+    position: relative;
+    /*min-height: 400px;*/
+    height: auto;
+    margin-bottom: 2em;
+}
+.wrapper .event.free:before {
+    content: "Free";
+    background: #5dbf0d;
+    font-size: 1em;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.5em 1em;
+}
+.wrapper .event .event-info {
+    color: #fff;
+    position: relative;
+    z-index: 999;
+    padding: 3em;
+    height: 100%;
+    /*max-width: 400px;*/
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.wrapper .event .event-info.yellow {
+    border-left: 15px solid #fad200;
+}
+.wrapper .event .event-info.blue {
+    border-left: 15px solid #258dc8;
+}
+.wrapper .event .event-info.red {
+    border-left: 15px solid #ba0000;
+}
+.wrapper .event .event-info .event-header {
+    margin-bottom: 0.5em;
+}
+.wrapper .event .event-info h1 {
+    font-size: 2em;
+    text-shadow: 0px 1px 0px #000;
+    margin-bottom: 0.5em;
+}
+.wrapper .event .event-info p {
+    line-height: 1.5em;
+}
+.wrapper .event .event-info p.time:before {
+    content: "\f017";
+    font-family: "FontAwesome", sans-serif;
+    margin-right: 0.5em;
+}
+.wrapper .event .event-info p.location:before {
+    content: "\f041";
+    font-family: "FontAwesome", sans-serif;
+    margin-right: 0.5em;
+}
+.wrapper .event .event-info p.description {
+    line-height: 1.75em;
+}
+.wrapper .event .event-info p a {
+    color: #fff;
+}
+.wrapper .event .event-info .event-date-wrapper {
+    float: left;
+    margin: 0 2em 1em 0;
+    clear: both;
+    height: 100%;
+}
+.wrapper .event .event-info .event-date-wrapper .date {
+    width: 75px;
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5em 0;
+    margin-bottom: 0.7em;
+    box-shadow: 0px 1px 0px #000;
+}
+.wrapper .event .event-info .event-date-wrapper .date.yellow {
+    background: #fad200;
+}
+.wrapper .event .event-info .event-date-wrapper .date.blue {
+    background: #258dc8;
+}
+.wrapper .event .event-info .event-date-wrapper .date.red {
+    background: #ba0000;
+}
+.wrapper .event .event-info .event-date-wrapper .date.end:before {
+    content: "thru";
+    font-size: 0.5em;
+    display: block;
+    position: absolute;
+    top: 114px;
+    left: 75px;
+}
+
+.wrapper .event .img {
+    display: block;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+.wrapper .event:hover .img {
+    transform: scale(1.15);
+    filter: blur(2px) grayscale(80%);
+}
