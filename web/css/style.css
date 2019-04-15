@@ -2902,3 +2902,12 @@ form input[type=text] {
         border: 1px solid #ccc;
     }
 }
+
+#log-form input{
+    width: 120px;
+    margin-right: 3px;
+}
+
+#log-form button{
+    margin-right: 5px;
+}

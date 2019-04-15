@@ -3,7 +3,17 @@
 /** @var  app\models\LoginForm $modelLoginForm */
 
 use yii\bootstrap\ActiveForm;
-use yii\helpers\Html; ?>
+use yii\helpers\Html;
+
+$fieldOptions1 = [
+    'options' => ['class' => 'form-control mr-sm-2']
+];
+
+$fieldOptions2 = [
+    'options' => ['class' => 'form-control mr-sm-2'],
+    'inputTemplate' => "{input}<span class='glyphicon glyphicon-lock form-control-feedback'></span>"
+];
+?>
 <header>
     <!-- NAVBAR - START -->
     <nav class="navbar navbar-expand-lg navbar navbar-dark">
@@ -14,7 +24,7 @@ use yii\helpers\Html; ?>
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Правила</a>
                     </li>
@@ -25,20 +35,22 @@ use yii\helpers\Html; ?>
                         <a class="nav-link" href="#">Ban list</a>
                     </li>
                 </ul>
-<!--                <div class="login-container">-->
-<!--                    <form action="/action_page.php">-->
-<!--                        <input type="text" placeholder="Username" name="username">-->
-<!--                        <input type="text" placeholder="Password" name="psw">-->
-<!--                        <a class="btn btn-success"><i class="fas fa-sign-in-alt"></i></a>-->
-<!--                    </form>-->
-<!--                </div>-->
-                <div class="container">
-                    <div class="row">
-                        <input type="text" placeholder="Username" name="username">
-                        <input type="text" placeholder="Username" name="username">
-                        <a class="btn btn-success"><i class="fas fa-sign-in-alt"></i></a>
-                    </div>
-                </div>
+                <?php $form = ActiveForm::begin(['id' => 'log-form', 'options' => ['class' => 'form-inline my-1 my-lg-0'], 'enableClientValidation' => false]); ?>
+                <form class="form-inline my-1 my-lg-0">
+<!--                    <input class="form-control mr-sm-2" placeholder="Логин">-->
+                    <?= $form
+                        ->field($modelLoginForm, 'username')
+                        ->label(false)
+                        ->textInput(['placeholder' => $modelLoginForm->getAttributeLabel('username')]) ?>
+                    <?= $form
+                        ->field($modelLoginForm, 'password')
+                        ->label(false)
+                        ->passwordInput(['placeholder' => $modelLoginForm->getAttributeLabel('password')]) ?>
+                    <?= Html::submitButton('<i class="fas fa-sign-in-alt"></i>', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
+                </form>
+                <?php ActiveForm::end(); ?>
+                <?= Html::submitButton('Регистрация', ['class' => 'btn btn-info', 'name' => 'login-button']) ?>
+
             </div>
         </div>
     </nav>
