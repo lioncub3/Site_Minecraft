@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\CarouselData;
 use app\models\History;
 use app\models\LoginForm;
+use app\models\Rules;
 use Yii;
 use app\models\Social;
 use yii\filters\VerbFilter;
@@ -57,5 +58,16 @@ class SiteController extends Controller
         );
 
         return $this->render('index', $params);
+    }
+
+    public function actionRules()
+    {
+        $modelRules = Rules::findOne('1');
+
+        $modelLoginForm = new LoginForm();
+
+        Yii::$app->view->params['modelSettings'] = Settings::find()->orderBy(['id' => SORT_DESC])->one();
+
+        return $this->render('rules', ['modelRules' => $modelRules, 'modelLoginForm' => $modelLoginForm]);
     }
 }

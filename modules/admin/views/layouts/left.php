@@ -34,6 +34,7 @@
                     ['label' => 'Карусель', 'icon' => 'briefcase', 'url' => ['/admin/carousel'], 'active' => $controllerID === 'carousel'],
                     ['label' => 'Галерея', 'icon' => 'image', 'url' => ['/admin/gallery'], 'active' => $controllerID === 'gallery'],
                     ['label' => 'История', 'icon' => 'clock', 'url' => ['/admin/history'], 'active' => $controllerID === 'history'],
+                    ['label' => 'Правила', 'icon' => 'file-alt', 'url' => ['/admin/rules'], 'active' => $controllerID === 'rules'],
                     
                     ['label' => 'Контакты', 'icon' => 'phone', 'url' => ['/admin/contacts'], 'active' => $controllerID === 'contacts'],
                     ['label' => 'Пользователи', 'icon' => 'user', 'url' => ['/admin/user'],  'active' => $controllerID === 'user',],

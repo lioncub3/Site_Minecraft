@@ -13,8 +13,11 @@ use yii\helpers\Html;
 
 ?>
 
-<?= $this->render('_header', ['modelCarouselData' => $modelCarouselData, 'modelLoginForm' => $modelLoginForm]); ?>
+<header>
+    <?= $this->render('_header', ['modelLoginForm' => $modelLoginForm]); ?>
 
+    <?= $this->render('_carousel', ['modelCarouselData' => $modelCarouselData]); ?>
+</header>
 <main>
 
     <!-- CONTACT UP - START -->
