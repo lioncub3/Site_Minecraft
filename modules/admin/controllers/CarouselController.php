@@ -1,12 +1,12 @@
 <?php
 
 namespace app\modules\admin\controllers;
+use app\models\CarouselData;
 use \Yii;
-use app\models\Services;
 use yii\data\ActiveDataProvider;
 use yii\web\UploadedFile;
 
-class ServicesController extends \yii\web\Controller
+class CarouselController extends \yii\web\Controller
 {
 
     public $layout = "main";
@@ -29,50 +29,49 @@ class ServicesController extends \yii\web\Controller
 
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider(['query' => Services::find()->where(['id_parent' => null]), 'pagination' => ['pageSize' => 10]]);
+        $dataProvider = new ActiveDataProvider(['query' => CarouselData::find(), 'pagination' => ['pageSize' => 10]]);
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }
 
-    public function actionCreate($id_parent)
+    public function actionCreate()
     {
-        $model = new Services();
+        $model = new CarouselData();
 
         if ($model->load(Yii::$app->request->post()))
         {
-            $model->id_parent  = $id_parent;
             if($model->save())
             {
-                $dataProvider = new ActiveDataProvider(['query' => Services::find()->where(['id_parent' => null]), 'pagination' => ['pageSize' => 10]]);
-                Yii::$app->session->setFlash('success', 'Подкатегория успешно добавлена!');
+                $dataProvider = new ActiveDataProvider(['query' => CarouselData::find(), 'pagination' => ['pageSize' => 10]]);
+                Yii::$app->session->setFlash('success', 'Вкладка успешно добавлена!');
                 return $this->redirect(['index', 'dataProvider' => $dataProvider]);
             }
         }
 
-        return $this->render('createService', ['model' => $model]);
+        return $this->render('createCarouselData', ['model' => $model]);
     }
 
     public function actionUpdate($id)
     {
-        $model = Services::findOne(['id' => $id]);
+        $model = CarouselData::findOne(['id' => $id]);
 
         if ($model->load(Yii::$app->request->post()))
         {
             if($model->save())
             {
-                $dataProvider = new ActiveDataProvider(['query' => Services::find()->where(['id_parent' => null]), 'pagination' => ['pageSize' => 10]]);
-                Yii::$app->session->setFlash('success', 'Категория успешно изменена!');
+                $dataProvider = new ActiveDataProvider(['query' => CarouselData::find(), 'pagination' => ['pageSize' => 10]]);
+                Yii::$app->session->setFlash('success', 'Вкладка успешно изменена!');
                 return $this->redirect(['index', 'dataProvider' => $dataProvider]);
             }
         }
 
-        return $this->render('editService', ['model' => $model]);
+        return $this->render('editCarouselData', ['model' => $model]);
     }
 
     public function actionDelete($id) {
-        $model = Services::findOne($id);
+        $model = CarouselData::findOne($id);
         $model->delete();
 
-        Yii::$app->session->setFlash('success', 'Подкатегория успешно удалена!');
+        Yii::$app->session->setFlash('success', 'Вкладка успешно удалена!');
         return $this->redirect(Yii::$app->request->referrer ?: Yii::$app->homeUrl);
     }
 

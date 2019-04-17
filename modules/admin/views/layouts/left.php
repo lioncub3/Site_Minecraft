@@ -31,7 +31,7 @@
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
                     ['label' => 'PMTime Menu', 'options' => ['class' => 'header']],
-                    ['label' => 'Услуги', 'icon' => 'briefcase', 'url' => ['/admin/services'], 'active' => $controllerID === 'services'],
+                    ['label' => 'Карусель', 'icon' => 'briefcase', 'url' => ['/admin/carousel'], 'active' => $controllerID === 'carousel'],
                     ['label' => 'Галерея', 'icon' => 'image', 'url' => ['/admin/gallery'], 'active' => $controllerID === 'gallery'],
                     ['label' => 'История', 'icon' => 'clock', 'url' => ['/admin/history'], 'active' => $controllerID === 'history'],
                     

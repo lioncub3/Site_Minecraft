@@ -6,14 +6,14 @@ use kartik\file\FileInput;
 use yii\helpers\Url;
 use app\models\Services;
 
-$this->title = 'Услуги';
+$this->title = 'Карусель';
 
 $form = ActiveForm::begin(['id' => 'login-form', 'options' => ['enctype' => 'multipart/form-data'],]) ?>
 <?= $form->field($model, 'id')->hiddenInput(['value' => $model->id])->label(false); ?>
 
 <?= $form->field($model, 'img_banner')->hiddenInput(['value' => $model->img_banner])->label(false); ?>
 
-<?php if($model->id_parent == null): echo $form->field($model, 'image')->widget(FileInput::class, [
+<?= $form->field($model, 'image')->widget(FileInput::class, [
     'options'       => ['accept' => 'image/*'],
     'pluginOptions' => [
         'initialPreview'        => [$model->img_banner],
@@ -27,11 +27,9 @@ $form = ActiveForm::begin(['id' => 'login-form', 'options' => ['enctype' => 'mul
         'uploadClass'           => 'btn btn-info',
         'removeClass'           => 'btn btn-danger'
     ],
-]); endif; ?>
+]) ?>
 
 <?= $form->field($model, 'title')->textarea(['rows' => '3'])->label('Заголовок') ?>
-
-<?= $form->field($model, 'video') ?>
 
 <?= $form->field($model, 'content')->widget(vova07\imperavi\Widget::class, [
     'id' => 'content',

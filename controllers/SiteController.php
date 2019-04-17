@@ -53,7 +53,6 @@ class SiteController extends Controller
             'modelGallery',
             'modelHistory',
             'modelCarouselData',
-            'modelSubServices',
             'modelLoginForm'
         );
 

@@ -4,9 +4,9 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\ListView;
 
-$this->title = 'Услуги';
+$this->title = 'Карусель';
 
-$this->registerCssFile('/css/admin/services.css');
+$this->registerCssFile('/css/admin/carousel.css');
 ?>
 
 <style>
@@ -24,7 +24,7 @@ $this->registerCssFile('/css/admin/services.css');
             'options' => ['class' => 'container-fluid'],
             'itemOptions' => ['class' => 'row bordered-bottom'],
             'layout' => "{items}\n{summary}\n{pager}\n",
-            'itemView' => '_service',
+            'itemView' => '_carousel',
         ]);
     } catch (Exception $e) { }
 

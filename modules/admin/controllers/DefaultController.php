@@ -40,12 +40,12 @@ class DefaultController extends \yii\web\Controller
     public function actionIndex()
     {
         if(!Yii::$app->user->isGuest)
-            return $this->redirect(['/admin/services/index']);
+            return $this->redirect(['/admin/carousel/index']);
 
         $model = new LoginForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['/admin/services/index']);
+            return $this->redirect(['/admin/carousel/index']);
         }
 
         $model->password = '';

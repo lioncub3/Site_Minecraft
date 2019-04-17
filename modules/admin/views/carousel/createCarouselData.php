@@ -6,20 +6,18 @@ use kartik\file\FileInput;
 use yii\helpers\Url;
 use app\models\Services;
 
-$this->title = 'Услуги';
+$this->title = 'Карусель';
 
 $form = ActiveForm::begin(['id' => 'login-form',]) ?>
 
 <?= $form->field($model, 'title')->textarea(['rows' => '3'])->label('Заголовок') ?>
-
-<?= $form->field($model, 'video') ?>
 
 <?= $form->field($model, 'content')->widget(vova07\imperavi\Widget::class, [
     'id' => 'content',
     'settings' => [
         'lang'              => 'ru',
         'minHeight'         => 250,
-        'placeholder'       => 'Описание услуги',
+        'placeholder'       => 'Описание',
         'plugins' => [
             'fontsize',
             'filemanager' => 'vova07\imperavi\bundles\FileManagerAsset',
