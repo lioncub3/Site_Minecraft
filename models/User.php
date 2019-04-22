@@ -13,6 +13,7 @@ use \yii\web\IdentityInterface;
  * @property int $id
  * @property string $username
  * @property string $password
+ * @property string $email
  * @property string $authKey
  * @property string $accessToken
  *
@@ -28,7 +29,8 @@ class User extends ActiveRecord implements IdentityInterface {
     public function rules()
     {
         return [
-            // [['username', 'password'], 'required'],
+            [['username', 'password', 'email'], 'required'],
+            [['email'], 'email'],
             [['authKey', 'accessToken'], 'default', 'value' => ''],
             [['password', 'authKey', 'accessToken'], 'string'],
             [['username'], 'string', 'max' => 50],
@@ -41,6 +43,7 @@ class User extends ActiveRecord implements IdentityInterface {
             'id'            => 'ID',
             'username'      => 'Логин',
             'password'      => 'Пароль',
+            'email'         => 'Электронная почта',
             'authKey'       => 'Auth Key',
             'accessToken'   => 'Access Token',
         ];
@@ -89,14 +92,5 @@ class User extends ActiveRecord implements IdentityInterface {
     private function cryptPassword($password)
     {
         return md5($password);
-    }
-
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBlogs()
-    {
-        return $this->hasMany(Blog::class, ['id_user' => 'id']);
     }
 }

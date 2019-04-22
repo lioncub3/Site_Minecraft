@@ -22,6 +22,7 @@ class m190318_132505_user extends Migration
                 'id'=> $this->primaryKey(11),
                 'username'=> $this->string(50)->notNull(),
                 'password'=> $this->text()->notNull(),
+                'email'=> $this->text()->notNull(),
                 'authKey'=> $this->text()->notNull(),
                 'accessToken'=> $this->text()->notNull(),
             ],$tableOptions

@@ -6,6 +6,7 @@ use app\models\CarouselData;
 use app\models\History;
 use app\models\LoginForm;
 use app\models\Rules;
+use app\models\SignupForm;
 use Yii;
 use app\models\Social;
 use yii\filters\VerbFilter;
@@ -18,12 +19,13 @@ class SiteController extends Controller
 {
     public $layout = "custom";
 
-    public function behaviors() {
+    public function behaviors()
+    {
         return [
             'verbs' => [
                 'class'     => VerbFilter::class,
                 'actions'   => [
-                    'index'                 => ['GET'],
+                    'index'                 => ['GET', 'POST'],
                     'calendar'              => ['GET']
                 ]
             ]
@@ -57,6 +59,10 @@ class SiteController extends Controller
             'modelLoginForm'
         );
 
+        if ($modelLoginForm->load(Yii::$app->request->post()) && $modelLoginForm->login()) {
+            return $this->render('index', $params);
+        }
+
         return $this->render('index', $params);
     }
 
@@ -69,5 +75,32 @@ class SiteController extends Controller
         Yii::$app->view->params['modelSettings'] = Settings::find()->orderBy(['id' => SORT_DESC])->one();
 
         return $this->render('rules', ['modelRules' => $modelRules, 'modelLoginForm' => $modelLoginForm]);
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->goHome();
+    }
+
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        $modelLoginForm = new LoginForm();
+
+        Yii::$app->view->params['modelSettings'] = Settings::find()->orderBy(['id' => SORT_DESC])->one();
+
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                if (Yii::$app->getUser()->login($user)) {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+            'modelLoginForm' => $modelLoginForm
+        ]);
     }
 }

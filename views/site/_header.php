@@ -34,9 +34,8 @@ $fieldOptions2 = [
                         <a class="nav-link" href="#">Ban list</a>
                     </li>
                 </ul>
-                <?php $form = ActiveForm::begin(['id' => 'log-form', 'options' => ['class' => 'form-inline my-1 my-lg-0'], 'enableClientValidation' => false]); ?>
-                <form class="form-inline my-1 my-lg-0">
-<!--                    <input class="form-control mr-sm-2" placeholder="Логин">-->
+                <?php if(Yii::$app->user->isGuest):
+                $form = ActiveForm::begin(['id' => 'log-form', 'options' => ['class' => 'form-inline my-1 my-lg-0'], 'enableClientValidation' => false]); ?>
                     <?= $form
                         ->field($modelLoginForm, 'username')
                         ->label(false)
@@ -46,10 +45,14 @@ $fieldOptions2 = [
                         ->label(false)
                         ->passwordInput(['placeholder' => $modelLoginForm->getAttributeLabel('password')]) ?>
                     <?= Html::submitButton('<i class="fas fa-sign-in-alt"></i>', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
-                </form>
                 <?php ActiveForm::end(); ?>
-                <?= Html::submitButton('Регистрация', ['class' => 'btn btn-info', 'name' => 'login-button']) ?>
-
+                <a href="/site/signup" class="btn btn-info">Регистрация</a>
+                <?php else: ?>
+                <a href="/personoffice" class="btn btn-info pull-right">
+                    Личный кабинет
+                </a>
+                <a href="/site/logout" class="btn btn-danger">Выйти</a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>

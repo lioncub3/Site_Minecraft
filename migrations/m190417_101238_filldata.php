@@ -17,6 +17,7 @@ class m190417_101238_filldata extends Migration
         $new_user->id = 1;
         $new_user->username = 'rosweis';
         $new_user->password = md5('rosweis2019');
+        $new_user->email = 'rosweis@gmail.com';
 
         $new_user->save();
 
