@@ -7,6 +7,7 @@ use app\models\History;
 use app\models\LoginForm;
 use app\models\Rules;
 use app\models\SignupForm;
+use app\services\SignupService;
 use Yii;
 use app\models\Social;
 use yii\filters\VerbFilter;
@@ -91,10 +92,16 @@ class SiteController extends Controller
         Yii::$app->view->params['modelSettings'] = Settings::find()->orderBy(['id' => SORT_DESC])->one();
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
-                }
+            $signupService = new SignupService();
+
+            try{
+                $user = $signupService->signup($model);
+                Yii::$app->session->setFlash('success', 'Check your email to confirm the registration.');
+                $signupService->sentEmailConfirm($user);
+                return $this->goHome();
+            } catch (\RuntimeException $e){
+                Yii::$app->errorHandler->logException($e);
+                Yii::$app->session->setFlash('error', $e->getMessage());
             }
         }
 
@@ -102,5 +109,20 @@ class SiteController extends Controller
             'model' => $model,
             'modelLoginForm' => $modelLoginForm
         ]);
+    }
+
+    public function actionSignupConfirm($token)
+    {
+        $signupService = new SignupService();
+
+        try{
+            $signupService->confirmation($token);
+            Yii::$app->session->setFlash('success', 'You have successfully confirmed your registration.');
+        } catch (\Exception $e){
+            Yii::$app->errorHandler->logException($e);
+            Yii::$app->session->setFlash('error', $e->getMessage());
+        }
+
+        return $this->goHome();
     }
 }

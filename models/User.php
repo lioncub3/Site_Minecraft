@@ -16,10 +16,13 @@ use \yii\web\IdentityInterface;
  * @property string $email
  * @property string $authKey
  * @property string $accessToken
- *
- * @property Blog[] $blogs
+ * @property boolean $status
+ * @property string $email_confirm_token
  */
-class User extends ActiveRecord implements IdentityInterface {
+class User extends ActiveRecord implements IdentityInterface
+{
+    const STATUS_WAIT = false;
+    const STATUS_ACTIVE = true;
 
     public static function tableName()
     {
@@ -29,11 +32,12 @@ class User extends ActiveRecord implements IdentityInterface {
     public function rules()
     {
         return [
-            [['username', 'password', 'email'], 'required'],
+            [['username', 'password', 'email', 'status'], 'required'],
             [['email'], 'email'],
             [['authKey', 'accessToken'], 'default', 'value' => ''],
-            [['password', 'authKey', 'accessToken'], 'string'],
+            [['password', 'authKey', 'accessToken', 'email_confirm_token'], 'string'],
             [['username'], 'string', 'max' => 50],
+            [['status'], 'boolean'],
         ];
     }
 

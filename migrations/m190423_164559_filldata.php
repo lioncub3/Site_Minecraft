@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m190417_101238_filldata
+ * Class m190423_164559_filldata
  */
-class m190417_101238_filldata extends Migration
+class m190423_164559_filldata extends Migration
 {
     /**
      * {@inheritdoc}
@@ -18,6 +18,7 @@ class m190417_101238_filldata extends Migration
         $new_user->username = 'rosweis';
         $new_user->password = md5('rosweis2019');
         $new_user->email = 'rosweis@gmail.com';
+        $new_user->status = true;
 
         $new_user->save();
 
@@ -323,7 +324,7 @@ class m190417_101238_filldata extends Migration
      */
     public function safeDown()
     {
-        echo "m190417_101238_filldata cannot be reverted.\n";
+        echo "m190423_164559_filldata cannot be reverted.\n";
 
         return false;
     }
@@ -337,7 +338,7 @@ class m190417_101238_filldata extends Migration
 
     public function down()
     {
-        echo "m190417_101238_filldata cannot be reverted.\n";
+        echo "m190423_164559_filldata cannot be reverted.\n";
 
         return false;
     }
