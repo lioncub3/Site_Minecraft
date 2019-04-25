@@ -16,6 +16,7 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $rules;
     /**
      * {@inheritdoc}
      */
@@ -33,6 +34,7 @@ class SignupForm extends Model
             ['email', 'unique', 'targetClass' => 'app\models\User', 'message' => 'Этот email занят'],
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['rules', 'required', 'requiredValue' => 1, 'message' => 'Примите правила']
         ];
     }
 }

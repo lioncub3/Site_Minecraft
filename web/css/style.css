@@ -2864,12 +2864,6 @@ TEAM BLOCK
 }
 
 /* Style the input field inside the navbar */
-form input[type=text] {
-    padding: 9px;
-    font-size: 17px;
-    border: none;
-    width: 100px; /* adjust as needed (as long as it doesn't break the topnav) */
-}
 
 /* Style the button inside the input container */
 .login-container button {
