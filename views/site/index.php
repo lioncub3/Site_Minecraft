@@ -22,7 +22,7 @@ use yii\helpers\Html;
 
     <!-- CONTACT UP - START -->
     <section class='contact-us'>
-        <a class='contact-link' href="#"><img src="/images/siteIcons/play.svg" alt=""></a>
+        <a class='contact-link' href="/site/signup"><img src="/images/siteIcons/play.svg" alt=""></a>
         <h3>Играй с нами!</h3>
     </section>
     <!-- CONTACT UP - END -->
