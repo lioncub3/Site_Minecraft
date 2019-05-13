@@ -17,7 +17,7 @@ class SignupService
         $user = new \app\models\User();
         $user->username = $form->username;
         $user->email = $form->email;
-        $user->password = md5($form->password);
+        $user->password = md5(md5($form->password));
         $user->email_confirm_token = Yii::$app->security->generateRandomString();
         $user->status = $user::STATUS_WAIT;
 

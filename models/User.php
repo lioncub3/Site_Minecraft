@@ -95,6 +95,6 @@ class User extends ActiveRecord implements IdentityInterface
 
     private function cryptPassword($password)
     {
-        return md5($password);
+        return md5(md5($password));
     }
 }
