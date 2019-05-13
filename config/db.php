@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=minecraft',
-    'username' => 'root',
-    'password' => '',
+    'dsn' => 'mysql:host=localhost;dbname=edemcraf_db',
+    'username' => 'edemcraf_db',
+    'password' => 'LZApSu4D',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)
