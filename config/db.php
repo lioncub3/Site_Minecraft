@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=edemcraf_db',
+    'dsn' => 'mysql:host=edemcraf.mysql.tools;dbname=edemcraf_db',
     'username' => 'edemcraf_db',
     'password' => 'LZApSu4D',
     'charset' => 'utf8',
